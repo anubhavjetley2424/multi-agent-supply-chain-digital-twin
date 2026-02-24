@@ -75,6 +75,14 @@ The platform follows a Neuro-Symbolic Pipeline, combining:
 ## 🛠 Technical Deep Dive
 
 ### 1️⃣ The Multi-Agent Brain (`brain.py`)
+
+graph LR
+    EXEC[Agent Executor]
+    EXEC --> PLAN[Planner Agent]
+    EXEC --> COORD[Coordinator Agent]
+    EXEC --> ANALYST[Analyst Agent]
+    EXEC --> FIN[Finance Agent]
+    
 The orchestration engine coordinates four specialized agents:
 
 * **🔹 Planner Agent:** Cross-references inventory vs production schedules, identifies material mismatch risks, and flags 24-hour production halt warnings.
