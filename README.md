@@ -3,7 +3,40 @@
 ### 🐾 Animal Medicine Manufacturer Digital Twin
 **Enterprise Agentic Layer for Logistics, Planning & Finance**
 
----
+## System Architecture
+graph TD
+
+    subgraph Agentic Layer (FastAPI + LangChain)
+        A[brain.py] --> B{Agent Executor}
+        B --> P[Planner Agent]
+        B --> C[Coordinator Agent]
+        B --> F[Finance Agent]
+        B --> AN[Analyst Agent]
+    end
+
+    subgraph Tools & Intelligence
+        P --> T1[Excel MCP Tool]
+        C --> T2[Maps MCP Tool]
+        F --> T1
+        AN --> T3[Analytics Tool]
+
+        P --> RAG[Qdrant Vector DB]
+        C --> RAG
+        T1 --> HITL[Human in the Loop]
+        T2 --> HITL
+    end
+
+    subgraph Data Platform (Docker + GCP)
+        K[Kafka Stream] --> S[(Supabase PostgreSQL)]
+        AF[Airflow DAGs] --> S
+        S --> A
+    end
+
+    subgraph Digital Twin Frontend (Next.js)
+        S --> D[Live Dashboard]
+        D --> MAP[Deck.gl 3D Map]
+        D --> CHAT[Orchestrator Chat]
+    end
 
 ## 🌟 Executive Summary
 Vetlab Autopak is a full-scale Digital Twin + Agentic Operating System designed to mirror and optimize complex supply chain lifecycles in real time.
