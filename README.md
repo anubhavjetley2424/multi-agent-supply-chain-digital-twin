@@ -3,7 +3,36 @@
 ### 🐾 Animal Medicine Manufacturer Digital Twin
 **Enterprise Agentic Layer for Logistics, Planning & Finance**
 
-## System Architecture
+## 🌟 Executive Summary
+Vetlab Autopak is a full-scale Digital Twin + Agentic Operating System designed to mirror and optimize complex supply chain lifecycles in real time.
+
+Inspired by enterprise intelligence platforms like Palantir, the system uses:
+* **Multi-Agent Orchestration:** Powered by LangChain and GPT-4o.
+* **Real-time Streaming Infrastructure:** For live telemetry updates.
+* **Financial Reconciliation Automation:** Autonomous tracking and calculation.
+* **Logistics Intelligence:** Dynamic routing and ETA management.
+* **Human-In-The-Loop Safety Controls:** Ensuring governance over high-stakes actions.
+
+Built using a "build-first" engineering philosophy, the platform bridges raw operational telemetry with high-level reasoning through a neuro-symbolic architecture.
+
+---
+
+## 🎥 Control Tower Overview
+The platform operates as a live operational command center featuring:
+* 3D Shipment Visualization
+* Real-time Risk Monitoring
+* Automated Financial Impact Logging
+* Conversational Orchestrator Interface
+
+---
+
+## 🏗 System Architecture
+The platform follows a Neuro-Symbolic Pipeline, combining:
+* Deterministic data pipelines
+* Vector search + RAG
+* Tool-augmented LLM agents
+* Human approval workflows
+
 graph TD
 
     subgraph Agentic Layer (FastAPI + LangChain)
@@ -38,50 +67,11 @@ graph TD
         D --> CHAT[Orchestrator Chat]
     end
 
-## 🌟 Executive Summary
-Vetlab Autopak is a full-scale Digital Twin + Agentic Operating System designed to mirror and optimize complex supply chain lifecycles in real time.
-
-Inspired by enterprise intelligence platforms like Palantir, the system uses:
-* **Multi-Agent Orchestration:** Powered by LangChain and GPT-4o.
-* **Real-time Streaming Infrastructure:** For live telemetry updates.
-* **Financial Reconciliation Automation:** Autonomous tracking and calculation.
-* **Logistics Intelligence:** Dynamic routing and ETA management.
-* **Human-In-The-Loop Safety Controls:** Ensuring governance over high-stakes actions.
-
-Built using a "build-first" engineering philosophy, the platform bridges raw operational telemetry with high-level reasoning through a neuro-symbolic architecture.
-
----
-
-## 🎥 Control Tower Overview
-The platform operates as a live operational command center featuring:
-* 3D Shipment Visualization
-* Real-time Risk Monitoring
-* Automated Financial Impact Logging
-* Conversational Orchestrator Interface
-
----
-
-## 🏗 System Architecture
-The platform follows a Neuro-Symbolic Pipeline, combining:
-* Deterministic data pipelines
-* Vector search + RAG
-* Tool-augmented LLM agents
-* Human approval workflows
-
-*(Note: Insert your High-Level Architecture Diagram here)*
-
 ---
 
 ## 🛠 Technical Deep Dive
 
 ### 1️⃣ The Multi-Agent Brain (`brain.py`)
-
-graph LR
-    EXEC[Agent Executor]
-    EXEC --> PLAN[Planner Agent]
-    EXEC --> COORD[Coordinator Agent]
-    EXEC --> ANALYST[Analyst Agent]
-    EXEC --> FIN[Finance Agent]
     
 The orchestration engine coordinates four specialized agents:
 
