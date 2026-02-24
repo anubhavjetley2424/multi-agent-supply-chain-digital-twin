@@ -4,7 +4,7 @@
 **Enterprise Agentic Layer for Logistics, Planning & Finance**
 
 ## 🌟 Executive Summary
-Vetlab Autopak is a full-scale Digital Twin + Agentic Operating System designed to mirror and optimize complex supply chain lifecycles in real time.
+**This project** is a full-scale Digital Twin + Agentic Operating System designed to mirror and optimize complex supply chain lifecycles in real time.
 
 Inspired by enterprise intelligence platforms like Palantir, the system uses:
 * **Multi-Agent Orchestration:** Powered by LangChain and GPT-4o.
