@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "vetlab-files": {
+      "command": "python",
+      "args": ["mcp_excel_server.py"],
+      "env": {
+        "EXCEL_ROOT": "C:/Users/anubh/Documents/Vetlab_Reports/"
+      }
+    },
+    "vetlab-charts": {
+      "command": "python",
+      "args": ["mcp_chart_server.py"]
+    }
+  }
+}

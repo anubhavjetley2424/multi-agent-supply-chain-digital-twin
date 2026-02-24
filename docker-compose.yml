@@ -1,0 +1,64 @@
+services:
+  # --- 1. MODERN KAFKA (KRaft Mode - No Zookeeper) ---
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092'
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:29093'
+      KAFKA_LISTENERS: 'PLAINTEXT://0.0.0.0:29092,CONTROLLER://0.0.0.0:29093,PLAINTEXT_HOST://0.0.0.0:9092'
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_LOG_DIRS: '/var/lib/kafka/data'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      # Create a unique cluster ID for KRaft
+      CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
+
+  # --- 2. POSTGRES (Airflow Metadata Store) ---
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # --- 3. AIRFLOW (The Producer) ---
+  airflow-webserver:
+    build: 
+      context: .
+      dockerfile: airflow.Dockerfile
+    # The last command (airflow scheduler) stays in the foreground so the container doesn't exit
+    command: bash -c "airflow db migrate && airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com && (airflow webserver & airflow scheduler)"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_started
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+
+  # --- 4. INGESTION SERVICE (The Consumer) ---
+  ingestion-service:
+    build: ./ingestion
+    depends_on:
+      - kafka
+    restart: always
+    environment:
+      - KAFKA_BROKER=kafka:29092
+      - SUPABASE_URL=https://keoenuzromltwleyowdt.supabase.co
+      - SUPABASE_KEY=[YOUR_ANON_KEY]
