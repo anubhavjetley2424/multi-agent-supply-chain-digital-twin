@@ -1,124 +1,244 @@
-<img width="1350" height="844" alt="image" src="https://github.com/user-attachments/assets/900a2a67-e3a3-4d51-bf7f-221cd9465553" />
+🚚 Multi-Agent Supply Chain OS (Palantir-Style)
+🐾 Animal Medicine Manufacturer Digital Twin
 
-🚚 Multi-Agent Supply Chain OS (Palantir Style) : Animal Medicine Manufacturer
-Enterprise Agentic Layer for Logistics, Planning, and Finance
+Enterprise Agentic Layer for Logistics, Planning & Finance
+
 🌟 Executive Summary
 
-Vetlab Autopak is a sophisticated Digital Twin and Agentic Operating System built to mirror and optimize complex supply chain lifecycles. Inspired by enterprise platforms like Palantir, it utilizes a multi-agent orchestration layer to monitor live logistics, automate financial reconciliation, and predict manufacturing risks through a "build-first" engineering approach.
-+2
+Vetlab Autopak is a full-scale Digital Twin + Agentic Operating System designed to mirror and optimize complex supply chain lifecycles in real time.
 
-🎥 Control Tower Preview
-🏗️ System Architecture
-The platform operates on a Neuro-Symbolic Pipeline, bridging raw data ingestion with high-level LLM reasoning.
-+1
+Inspired by enterprise intelligence platforms like Palantir, the system uses:
 
-Code snippet
-graph TD
-    subgraph "Agentic Layer (FastAPI & LangChain)"
-        A[Brain.py] --> B{Agent Executor}
-        B --> P[Planner Agent]
-        B --> C[Coordinator Agent]
-        B --> F[Finance Agent]
-        B --> AN[Analyst Agent]
-    end
+🧠 Multi-Agent Orchestration (LangChain + GPT-4o)
 
-    subgraph "Tools & Intelligence"
-        P & C & F & AN --> Tools[MCP Tools: Excel, Maps, Comm Hub]
-        P & C --> RAG[Qdrant Vector DB / RAG]
-        Tools --> HITL[Human-In-The-Loop Approval]
-    end
+🔄 Real-time Streaming Infrastructure
 
-    subgraph "Data Platform (Docker/GCP)"
-        K[Kafka Stream] --> S[(Supabase PostgreSQL)]
-        AF[Airflow DAGs] --> S
-        S <--> A
-    end
+📊 Financial Reconciliation Automation
 
-    subgraph "Digital Twin Frontend (Next.js)"
-        S --> D[Live Dashboard]
-        D --> Map[Deck.gl 3D Map]
-        D --> Chat[Orchestrator Chat]
-    end
-🛠️ Technical Deep Dive
-1. The Multi-Agent Brain (brain.py)
-The orchestration layer coordinates four specialized agents using LangChain and GPT-4o:
+📦 Logistics Intelligence
 
+🛡 Human-In-The-Loop Safety Controls
 
-Planner Agent: Cross-references inventory vs. production schedules to identify material mismatch risks.
+Built using a "build-first" engineering philosophy, the platform bridges raw operational telemetry with high-level reasoning through a neuro-symbolic architecture.
 
+🎥 Control Tower Overview
 
-Coordinator Agent: Monitors live shipments using Google Maps MCP for real-time ETA adjustments based on weather impacts.
+The platform operates as a live operational command center:
 
+3D Shipment Visualization
 
-Analyst Agent: Performs demand planning and aggregates orders into structured trends.
+Real-time Risk Monitoring
 
+Automated Financial Impact Logging
 
-Finance Agent: Evaluates margin impacts of delays and logs commercial savings in Supabase.
-+1
+Conversational Orchestrator Interface
 
-2. Model Context Protocol (MCP) Tools
-I developed professional-grade tools to give the agents "hands" in the real world:
+🏗 System Architecture
 
+The platform follows a Neuro-Symbolic Pipeline, combining:
 
-Excel Manager: Autonomous generation of CSM Trackers and Pricing Packs featuring automated XLOOKUP reconciliation and charting.
-+1
+Deterministic data pipelines
 
+Vector search + RAG
 
-RAG Hub: Integrated Qdrant Vector DB allowing agents to query Supplier Contracts and SOPs for compliance checks.
+Tool-augmented LLM agents
 
+Human approval workflows
 
-HITL (Human-In-The-Loop): A critical safety layer where high-stakes commercial decisions (price hikes, customer alerts) require manual dashboard approval.
+🧠 High-Level Architecture Diagram
+Diagram is not supported.
+🛠 Technical Deep Dive
+1️⃣ The Multi-Agent Brain (brain.py)
 
-3. Data Engineering & Pipelines
-To maintain a "Live" twin, the infrastructure leverages:
+The orchestration engine coordinates four specialized agents:
 
+🔹 Planner Agent
 
-Kafka Stream Generator: Simulates high-concurrency IoT telemetry (truck temperature, engine load, weather).
+Cross-references inventory vs production schedules
 
+Identifies material mismatch risks
 
-Airflow Orchestration: Manages the batch-processing of manufacturing events, refreshing operational tables via GCP Cloud Composer.
+Flags 24-hour production halt warnings
 
+🔹 Coordinator Agent
 
-Digital Twin Sync: A Next.js dashboard utilizing Deck.gl to render live shipment arcs and fragility indexes.
+Monitors live shipments
+
+Uses Google Maps MCP for ETA recalibration
+
+Adjusts routes based on weather impact
+
+🔹 Analyst Agent
+
+Aggregates order data
+
+Performs demand trend analysis
+
+Outputs structured planning forecasts
+
+🔹 Finance Agent
+
+Calculates margin impact of delays
+
+Logs commercial savings
+
+Writes audit trail entries to Supabase
+
+2️⃣ Model Context Protocol (MCP) Tools
+
+Agents are equipped with production-grade “hands” to act autonomously.
+
+📊 Excel Manager
+
+Autonomous generation of:
+
+CSM Trackers
+
+Pricing Packs
+
+Automated XLOOKUP reconciliation
+
+Embedded financial charts
+
+🧾 RAG Hub
+
+Powered by Qdrant Vector Database
+
+Agents can query:
+
+Supplier Contracts
+
+SOPs
+
+Compliance Documentation
+
+Ensures:
+
+Regulatory adherence
+
+Contractual risk detection
+
+Intelligent context retrieval
+
+🛡 Human-In-The-Loop (HITL)
+
+High-impact actions require dashboard approval:
+
+Price hikes
+
+Customer notifications
+
+Commercial escalations
+
+This ensures AI governance and operational safety.
+
+3️⃣ Data Engineering & Pipelines
+
+The Digital Twin stays live through real-time and batch orchestration.
+
+🔄 Real-Time Stream Layer
+
+Simulates:
+
+Temperature fluctuations
+
+Engine load
+
+Weather impact
+
+Shipment telemetry
+
+⏳ Batch Processing
+
+Managed via:
+
+GCP Cloud Composer
+
+Scheduled manufacturing refresh cycles
+
+🗺 Digital Twin Visualization
+
+Built with:
+
+Next.js
+
+Deck.gl 3D shipment arcs
+
+Live fragility index overlays
+
+Orchestrator conversational interface
 
 🚀 Deployment & Usage
-Prerequisites
-Docker & Docker-Compose
+📦 Prerequisites
+
+Docker & Docker Compose
 
 OpenAI API Key
 
-Supabase Project URL/Key
+Supabase Project URL & Key
 
-Installation
-Clone the Repository:
-
-Bash
+🛠 Installation
+1️⃣ Clone Repository
 git clone https://github.com/anubhavjetley2424/multi-agent-supply-chain-digital-twin.git
 cd multi-agent-supply-chain-digital-twin
-Environment Setup:
-Create a .env file in the root:
+2️⃣ Environment Setup
 
-Plaintext
+Create .env in project root:
+
 SUPABASE_URL=your_url
 SUPABASE_KEY=your_key
 OPENAI_API_KEY=your_key
-Boot Infrastructure:
-
-Bash
+3️⃣ Boot Infrastructure
 docker-compose up --build
-Run Agentic API:
-
-Bash
+4️⃣ Run Agentic API
 cd agent
 pip install -r requirements.txt
 python brain.py
 📊 Project Impact
+⚙ Automated Reconciliation
 
-Automated Reconciliation: Reduced manual data entry for CSM tracking by implementing autonomous Excel toolkits.
-+1
+Reduced manual CSM data entry via autonomous Excel toolkit generation.
 
+🛑 Risk Mitigation
 
-Risk Mitigation: Real-time exception detection via the Planner Agent allows for 24-hour lead time on production halts.
+Planner Agent provides 24-hour lead time warnings on production halts.
 
+💰 Commercial Transparency
 
-Commercial Transparency: Finance Agent logs every intervention, providing a clear audit trail of ROI generated by the AI layer.
+Finance Agent logs every intervention, creating:
+
+Clear ROI tracking
+
+Full audit history
+
+Margin impact analytics
+
+🧠 Why This Architecture Matters
+
+This is not a chatbot.
+
+This is:
+
+A reasoning engine
+
+A logistics optimizer
+
+A financial copilot
+
+A digital twin orchestrator
+
+It demonstrates how multi-agent systems + structured data engineering can power enterprise-grade AI operating systems.
+
+🔮 Future Extensions
+
+Autonomous supplier negotiation simulations
+
+Predictive inventory rebalancing
+
+Reinforcement learning route optimization
+
+ERP-native integration
+
+🏁 Closing
+
+Vetlab Autopak represents a next-generation Agentic Supply Chain OS — bridging real-time telemetry, symbolic data pipelines, and LLM reasoning into one cohesive enterprise intelligence layer.
