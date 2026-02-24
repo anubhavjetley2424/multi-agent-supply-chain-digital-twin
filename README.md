@@ -46,7 +46,7 @@ Built using a "build-first" engineering philosophy, the platform bridges raw ope
 
 ---
 
-## ⚙️ MCP Tool Workflow (n8n-Style Diagram)
+## ⚙️ MCP Tool Workflow
 
 Agents are equipped with production-grade “hands” (Model Context Protocol tools) to act autonomously in generating reports, charts, and enforcing compliance.
 
