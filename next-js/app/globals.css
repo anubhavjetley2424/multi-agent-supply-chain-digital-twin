@@ -1,0 +1,100 @@
+﻿@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0a;
+  --panel: rgba(24, 24, 27, 0.52);
+  --neon-cyan: #00f3ff;
+  --neon-magenta: #ff00ff;
+  --neon-green: #39ff14;
+  --alert-red: #ff003c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at 18% 15%, rgba(0, 243, 255, 0.12), transparent 28%),
+    radial-gradient(circle at 90% 85%, rgba(255, 0, 255, 0.1), transparent 32%), var(--bg);
+  color: #f4f4f5;
+  font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.028) 0px, rgba(255, 255, 255, 0.028) 1px, transparent 2px, transparent 4px),
+    linear-gradient(to right, rgba(39, 39, 42, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(39, 39, 42, 0.2) 1px, transparent 1px);
+  background-size: 100% 4px, 48px 48px, 48px 48px;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+  background: rgba(82, 82, 91, 0.7);
+  border-radius: 9999px;
+}
+
+.glass-panel {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 0 1px rgba(39, 39, 42, 0.45);
+}
+
+.react-flow__pane {
+  cursor: default;
+}
+
+.agent-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 122px;
+  height: 122px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 243, 255, 0.7);
+  color: #d4d4d8;
+  background: rgba(24, 24, 27, 0.92);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: box-shadow 0.25s ease;
+}
+
+.agent-node.processing {
+  animation: neon-pulse 1.45s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(0, 243, 255, 0.1), 0 0 0 rgba(0, 243, 255, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.9), 0 0 36px rgba(0, 243, 255, 0.4);
+  }
+}
