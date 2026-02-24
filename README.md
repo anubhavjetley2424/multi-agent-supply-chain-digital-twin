@@ -33,40 +33,39 @@ The platform follows a Neuro-Symbolic Pipeline, combining:
 * Tool-augmented LLM agents
 * Human approval workflows
 
-graph TD
-
-    subgraph Agentic Layer (FastAPI + LangChain)
-        A[brain.py] --> B{Agent Executor}
-        B --> P[Planner Agent]
-        B --> C[Coordinator Agent]
-        B --> F[Finance Agent]
-        B --> AN[Analyst Agent]
+```mermaid
+graph TD;
+    subgraph Agentic_Layer [Agentic Layer: FastAPI + LangChain]
+        A[brain.py] --> B{Agent Executor};
+        B --> P[Planner Agent];
+        B --> C[Coordinator Agent];
+        B --> F[Finance Agent];
+        B --> AN[Analyst Agent];
     end
 
-    subgraph Tools & Intelligence
-        P --> T1[Excel MCP Tool]
-        C --> T2[Maps MCP Tool]
-        F --> T1
-        AN --> T3[Analytics Tool]
+    subgraph Tools_Intelligence [Tools & Intelligence]
+        P --> T1[Excel MCP Tool];
+        C --> T2[Maps MCP Tool];
+        F --> T1;
+        AN --> T3[Analytics Tool];
 
-        P --> RAG[Qdrant Vector DB]
-        C --> RAG
-        T1 --> HITL[Human in the Loop]
-        T2 --> HITL
+        P --> RAG[(Qdrant Vector DB)];
+        C --> RAG;
+        T1 --> HITL[Human in the Loop];
+        T2 --> HITL;
     end
 
-    subgraph Data Platform (Docker + GCP)
-        K[Kafka Stream] --> S[(Supabase PostgreSQL)]
-        AF[Airflow DAGs] --> S
-        S --> A
+    subgraph Data_Platform [Data Platform: Docker + GCP]
+        K[Kafka Stream] --> S[(Supabase PostgreSQL)];
+        AF[Airflow DAGs] --> S;
+        S --> A;
     end
 
-    subgraph Digital Twin Frontend (Next.js)
-        S --> D[Live Dashboard]
-        D --> MAP[Deck.gl 3D Map]
-        D --> CHAT[Orchestrator Chat]
+    subgraph Digital_Twin [Digital Twin Frontend: Next.js]
+        S --> D[Live Dashboard];
+        D --> MAP[Deck.gl 3D Map];
+        D --> CHAT[Orchestrator Chat];
     end
-
 ---
 
 ## 🛠 Technical Deep Dive
