@@ -1,5 +1,20 @@
 # 🚚 Multi-Agent Supply Chain OS (Palantir-Style)
 
+
+
+https://github.com/user-attachments/assets/1538c108-0730-4dad-b532-a3c4853332a7
+
+
+<img width="1494" height="648" alt="image" src="https://github.com/user-attachments/assets/d1e635d0-533a-4944-9dcf-10de4ddb8a81" />
+
+<img width="1012" height="858" alt="image" src="https://github.com/user-attachments/assets/c7507214-24bf-4ba6-897a-e27a3d99c388" />
+<img width="2802" height="1428" alt="image" src="https://github.com/user-attachments/assets/144cb561-c380-49c9-b5c0-69461fc69e44" />
+<img width="1890" height="648" alt="image" src="https://github.com/user-attachments/assets/820af265-5907-4bbb-ac80-bbc03140435b" />
+<img width="926" height="626" alt="image" src="https://github.com/user-attachments/assets/9be457f1-7a02-4783-b378-71aadaac0110" />
+
+
+
+
 ### 🐾 Animal Medicine Manufacturer Digital Twin
 **Enterprise Agentic Layer for Logistics, Planning & Finance**
 
@@ -56,7 +71,7 @@ graph TD;
     end
 
     subgraph Data_Platform [Data Platform: Docker + GCP]
-        K[Kafka Stream] --> S[(Supabase PostgreSQL)];
+        K[Kafka Stream] --> S[(Supabase - PostgreSQL)];
         AF[Airflow DAGs] --> S;
         S --> A;
     end
@@ -66,45 +81,3 @@ graph TD;
         D --> MAP[Deck.gl 3D Map];
         D --> CHAT[Orchestrator Chat];
     end
----
-
-## 🛠 Technical Deep Dive
-
-### 1️⃣ The Multi-Agent Brain (`brain.py`)
-    
-The orchestration engine coordinates four specialized agents:
-
-* **🔹 Planner Agent:** Cross-references inventory vs production schedules, identifies material mismatch risks, and flags 24-hour production halt warnings.
-* **🔹 Coordinator Agent:** Monitors live shipments, uses Google Maps MCP for ETA recalibration, and adjusts routes based on weather impact.
-* **🔹 Analyst Agent:** Aggregates order data, performs demand trend analysis, and outputs structured planning forecasts.
-* **🔹 Finance Agent:** Calculates margin impact of delays, logs commercial savings, and writes audit trail entries to Supabase.
-
-### 2️⃣ Model Context Protocol (MCP) Tools
-Agents are equipped with production-grade “hands” to act autonomously.
-
-* **📊 Excel Manager:** Autonomous generation of CSM Trackers and Pricing Packs, automated XLOOKUP reconciliation, and embedded financial charts.
-* **🧾 RAG Hub:** Powered by Qdrant Vector Database. Agents can query Supplier Contracts, SOPs, and Compliance Documentation to ensure regulatory adherence, contractual risk detection, and intelligent context retrieval.
-* **🛡 Human-In-The-Loop (HITL):** High-impact actions (price hikes, customer notifications, commercial escalations) require dashboard approval, ensuring AI governance and operational safety.
-
-### 3️⃣ Data Engineering & Pipelines
-The Digital Twin stays live through real-time and batch orchestration.
-
-* **🔄 Real-Time Stream Layer:** Simulates temperature fluctuations, engine load, weather impact, and shipment telemetry.
-* **⏳ Batch Processing:** Managed via GCP Cloud Composer for scheduled manufacturing refresh cycles.
-* **🗺 Digital Twin Visualization:** Built with Next.js, Deck.gl 3D shipment arcs, live fragility index overlays, and an orchestrator conversational interface.
-
----
-
-## 🚀 Deployment & Usage
-
-### 📦 Prerequisites
-* Docker & Docker Compose
-* OpenAI API Key
-* Supabase Project URL & Key
-
-### 🛠 Installation
-
-**1️⃣ Clone Repository**
-```bash
-git clone [https://github.com/anubhavjetley2424/multi-agent-supply-chain-digital-twin.git](https://github.com/anubhavjetley2424/multi-agent-supply-chain-digital-twin.git)
-cd multi-agent-supply-chain-digital-twin
