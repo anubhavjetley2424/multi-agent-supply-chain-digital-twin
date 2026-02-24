@@ -3,7 +3,11 @@
 ### 🐾 Animal Medicine Manufacturer Digital Twin
 **Enterprise Agentic Layer for Logistics, Planning & Finance**
 
-https://github.com/user-attachments/assets/1538c108-0730-4dad-b532-a3c4853332a7
+
+# Dashboard Design
+https://github.com/user-attachments/assets/4ead2fcf-3511-4029-99e6-f3a2ae0adf3f
+
+
 
 <table>
   <tr>
